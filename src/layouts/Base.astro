@@ -20,6 +20,20 @@ const {
     <meta name="theme-color" content="#0a0c0a" />
     <title>{title}</title>
 
+    {/* Set theme before paint to avoid a flash. Saved choice wins, else follow the OS. */}
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var theme =
+            saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

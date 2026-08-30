@@ -1,0 +1,217 @@
+# ─────────────────────────────────────────────────────────────────────────
+#  SONGS — the single source of truth for the showcase. Edit this file.
+#
+#  To go live with real tracks:
+#   1. Drop the real MP3 at  public/audio/<slug>.mp3  (must match `slug` below).
+#   2. Set `durationSeconds` to the real track length (whole seconds).
+#   3. Edit any text (title, concept, lyrics, …) right here. Nothing else to touch.
+#
+#  Field reference (all required):
+#   slug            unique id + audio filename → public/audio/<slug>.mp3
+#   title           song title (Vietnamese)
+#   titleGloss      short English gloss shown beside the title
+#   genre           music direction / genre label
+#   moodTags        list of short mood/tempo chips
+#   bpm             beats per minute (number)
+#   durationSeconds track length in seconds (number) — must match the audio file
+#   concept         one line: the creative idea
+#   description     short pitch (1–2 sentences)
+#   campaignFit     how this direction could serve the campaign
+#   lyrics          full lyrics; keep the "|" and indent — blank line = stanza break
+# ─────────────────────────────────────────────────────────────────────────
+
+- slug: tay-dinh-dau-tim-van-vui
+  title: "Tay Định Đầu, Tim Vẫn Vui"
+  titleGloss: "Hand on the Wheel, Heart Still Beats"
+  genre: "EDM / Electro"
+  moodTags: ["Upbeat", "Energetic", "Catchy"]
+  bpm: 128
+  durationSeconds: 161
+  concept: "Bản EDM lấy tiếng nẹt pô và vòng tua máy làm nhạc cụ — drop đúng lúc động cơ gầm lên."
+  description: "Build-up căng, drop mạnh, sound design từ âm thanh động cơ thật. Sinh ra để làm nền cho reels và clip tăng tốc."
+  campaignFit: "Chuẩn “viral” cho short-video và vòng thử thách cộng đồng. Dễ cắt ghép theo nhịp, hợp trend mạng xã hội."
+  lyrics: |
+    [Intro]
+
+    Sáng mở cửa, nghe tiếng máy vang
+    Một ngày mới lại bắt đầu sang
+    Áo hơi bụi, tay thì dính dầu
+    Mà nhìn xe chạy, tự nhiên thấy vui!
+
+    [Verse 1]
+
+    Có chiếc xe vừa vào tới cửa
+    Khách nói: “Anh ơi, coi giúp em nha!”
+    Nghe một tiếng máy, nhìn qua một chút
+    Bắt đúng bệnh rồi, sửa thôi mà!
+
+    Có hôm đông khách, làm từ sáng tới tối
+    Có hôm mỏi lưng, chẳng muốn đứng thêm
+    Nhưng thấy khách nhận xe, cười rồi nói:
+    “Xe chạy ngon rồi!” — thế là vui thêm!
+
+    [Pre-Chorus]
+
+    Nghề này có lúc cũng vất vả
+    Nhưng càng làm càng thấy yêu
+    Mỗi chiếc xe mình chăm chút
+    Là một lần giữ trọn niềm tin
+
+    [Chorus]
+
+    **Tay dính dầu — tim vẫn vui!**
+    **Xe chạy ngon — khách cười tươi!**
+    **Ngày hôm nay làm chưa xong**
+    **Mai mình làm tốt hơn thôi!**
+
+    **Tay dính dầu — tim vẫn vui!**
+    **Mồ hôi rơi — chẳng ngại chi!**
+    **Nghề mình chọn, mình làm tới**
+    **Làm bằng tâm — khách nhớ mình!**
+
+    [Verse 2]
+
+    Có người đem xe tới độ lại
+    Muốn con xe chạy khác ngày xưa
+    Mình ngồi tính từng con ốc nhỏ
+    Làm sao cho đẹp, chạy sao cho vừa
+
+    Có người chỉ cần xe đi thật tốt
+    Chẳng cần gì hơn, chỉ cần yên tâm
+    Mình hiểu rồi, nên làm cho thật kỹ
+    Bởi chiếc xe này, người ta cần mỗi ngày
+
+    [Pre-Chorus]
+
+    Một lần khách tin mình sửa chữa
+    Là một lần mình phải làm cho hay
+    Không cần nói những điều to tát
+    Cứ làm thật tốt, rồi khách sẽ biết
+
+    [Chorus]
+
+    **Tay dính dầu — tim vẫn vui!**
+    **Xe chạy ngon — khách cười tươi!**
+    **Ngày hôm nay làm chưa xong**
+    **Mai mình làm tốt hơn thôi!**
+
+    **Tay dính dầu — tim vẫn vui!**
+    **Mồ hôi rơi — chẳng ngại chi!**
+    **Nghề mình chọn, mình làm tới**
+    **Làm bằng tâm — khách nhớ mình!**
+
+    [Bridge]
+
+    Có những ngày chẳng ai thấy
+    Mình đã cố gắng bao nhiêu
+    Nhưng chỉ cần xe lăn bánh
+    Nghe tiếng máy êm là thấy yêu nghề!
+
+    [Final Chorus]
+
+    **Tay dính dầu — tim vẫn vui!**
+    **Xe chạy ngon — khách cười tươi!**
+    **Anh em mình cùng một nghề**
+    **Càng làm càng thấy mê!**
+
+    **Tay dính dầu — tim vẫn vui!**
+    **Mồ hôi rơi — chẳng ngại chi!**
+    **Nghề mình chọn, mình làm tới**
+    **Dù nắng mưa, mình vẫn cứ đi!**
+
+    [Outro]
+
+    Tay dính dầu...
+    Tim vẫn vui!
+    Xe chạy ngon...
+    Khách cười tươi!
+    Tiếng máy nổ...
+    Vang mãi thôi!
+    Cả cuộc đời...
+    Với nghề này!
+
+- slug: len-do
+  title: "Lên Đồ"
+  titleGloss: "Get Up and Go"
+  genre: "C-pop, Modern Chinese Pop"
+  moodTags: ["Upbeat", "Energetic", "Catchy"]
+  bpm: 92
+  durationSeconds: 178
+  concept: "Nhịp rap kể chuyện một ngày của thợ trẻ trong xưởng — mồ hôi, cờ-lê và niềm tự hào nghề."
+  description: "Beat boom-bap hiện đại, lời rap sắc và đời. Tôn vinh thế hệ thợ trẻ coi garage là sân khấu của mình."
+  campaignFit: "BLANK"
+  lyrics: |
+    [Intro]
+    Cờ lê lên tay — máy nổ vang trời!
+    Tia lửa bật lên — đam mê không ngơi!
+
+    [Verse]
+    Ốc vít siết chặt, từng chi tiết tinh
+    Dầu nhớt thay mới, máy chạy hết mình
+    Độ pô, độ đèn — chất riêng lên ngôi
+    Vào garage một vòng — xe khác hẳn rồi!
+
+    [Chorus]
+    Lên đồ! Lên đồ! — chiến thôi anh em!
+    Máy gầm! Máy gầm! — nghe là muốn lên!
+    Tay lái trong tay — đường dài phía trước
+    Thợ máy chơi chất — biến xe thành tuyệt tác!
+
+    [Verse]
+    Xe cũ trong garage, tưởng đâu hết thời
+    Qua tay người thợ — bỗng hóa thành đời
+    Từng con ốc nhỏ, dựng nên đam mê
+    đồng hành — anh em cứ mê!
+
+    [Chorus]
+    Lên đồ! Lên đồ! — chiến thôi anh em!
+    Máy gầm! Máy gầm! — nghe là muốn lên!
+    Tay lái trong tay — đường dài phía trước
+    Thợ máy chơi chất — biến xe thành tuyệt tác!
+
+    [Outro]
+    Đã mê là làm — đã làm là chất!
+    cùng anh em lên đồ!
+
+- slug: nghien-do-xe
+  title: "Nghiện Độ Xe"
+  titleGloss: "Car Enthusiast"
+  genre: "Melodic Rap, Hip-hop Pop"
+  moodTags: ["Bùng nổ", "Nổi loạn", "Cao trào"]
+  bpm: 138
+  durationSeconds: 204
+  concept: "Anthem rock guitar nặng — tinh thần không khuất phục của người thợ, mỗi động cơ là một trận chiến."
+  description: "Riff guitar dày, trống dồn và điệp khúc hát theo được. Bản nhạc dựng khí thế, dành cho những khoảnh khắc cao trào."
+  campaignFit: "Nhạc nền lý tưởng cho trailer chiến dịch và cảnh “hé lộ người hùng”. Tạo cảm giác epic khi lên hình."
+  lyrics: |
+    [Intro]
+    Xe kêu “rẹt rẹt” — ông thợ nghe phát!
+    Cầm ngay cờ lê: “Để tui xử!”
+
+    [Verse]
+    Ốc này hơi lỏng — siết một phát căng
+    Máy này hơi yếu — làm cho nó sung
+    Độ pô một chút, độ đèn một tí
+    Vợ hỏi “Đi đâu?” — “Ra garage chứ gì!”
+
+    [Chorus]
+    Mê xe! Mê xe! — sao mà cai được!
+    Nghe máy nổ lên — tim mình lại bước!
+    Cờ lê trên tay — tóc tai dính nhớt
+    Xe chưa đẹp sao? — Độ tiếp! Độ tiếp!
+
+    [Verse]
+    Sáng loay hoay máy, tối loay hoay xe
+    Bạn bè rủ nhậu — “Khoan, đang độ nè!”
+    Một con ốc nhỏ cũng phải làm cho chuẩn
+    Xe ra khỏi garage — ai nhìn cũng muốn!
+
+    [Chorus]
+    Mê xe! Mê xe! — sao mà cai được!
+    Nghe máy nổ lên — tim mình lại bước!
+    Cờ lê trên tay — tóc tai dính nhớt
+    Xe chưa đẹp sao? — Độ tiếp! Độ tiếp!
+
+    [Outro]
+    Không phải nghiện đâu… chỉ là đam mê!
+    Castrol Vietnam — anh em mình cùng mê!

@@ -45,8 +45,14 @@ Works the same on Vercel / Netlify / GitHub Pages — just build and serve `dist
 
 ## Editing the content
 
-Everything lives in **one file**: [`src/data/songs.ts`](src/data/songs.ts). Each song has a title,
-genre, mood tags, BPM, duration, concept, description, campaign fit, and full lyrics.
+All the content lives in **one plain-text file you can edit by hand**:
+[`src/data/songs.yaml`](src/data/songs.yaml). Each song has a title, genre, mood tags, BPM,
+duration, concept, description, campaign fit, and full lyrics — the file starts with a comment
+explaining every field. Edit the YAML, rebuild, done; no code to touch.
+
+> The build reads and checks `songs.yaml` (via `src/data/songs.ts`). If a field is missing or
+> mistyped, the build stops with a message naming the song and the field, so a broken edit can't
+> ship.
 
 ### Swapping in the real audio
 
@@ -54,7 +60,7 @@ Audio files live in `public/audio/<slug>.mp3`, matching each song's `slug`.
 
 1. Drop the real MP3 at the **same path/filename** (e.g. `public/audio/lua-trong-xuong.mp3`).
 2. If its length differs from the placeholder, update `durationSeconds` for that song in
-   `src/data/songs.ts`.
+   `src/data/songs.yaml`.
 3. Rebuild. No code changes needed.
 
 The placeholders shipped today are **silent MP3s** whose lengths match `durationSeconds`, so the
@@ -69,7 +75,8 @@ bash scripts/gen-audio.sh   # requires ffmpeg
 
 ```
 src/
-├── data/songs.ts            ← the single source of truth (edit here)
+├── data/songs.yaml          ← the single source of truth (edit here)
+├── data/songs.ts            ← typed loader that reads + validates songs.yaml
 ├── layouts/Base.astro       ← page shell, fonts, ambient background
 ├── components/
 │   ├── SongRow.astro        ← one row in the song list
