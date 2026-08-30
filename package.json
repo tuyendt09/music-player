@@ -1,0 +1,16 @@
+{
+  "name": "castrol-ai-music-showcase",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internal static showcase of AI-generated song samples for the Castrol Vietnam mechanic-community campaign.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.6.1"
+  }
+}

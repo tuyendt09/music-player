@@ -1,0 +1,54 @@
+---
+import type { Song } from '../data/songs';
+import { formatDuration } from '../data/songs';
+
+interface Props {
+  song: Song;
+  index: number;
+}
+const { song, index } = Astro.props;
+const idx = String(index + 1).padStart(2, '0');
+const src = `/audio/${song.slug}.mp3`;
+---
+
+<article class="song-row reveal" data-row={song.slug}>
+  <div class="song-index" aria-hidden="true">{idx}</div>
+
+  <button
+    class="play-btn js-play"
+    data-slug={song.slug}
+    data-src={src}
+    data-title={song.title}
+    data-genre={song.genre}
+    data-index={idx}
+    aria-label={`Phát bài ${song.title}`}
+  >
+    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M8 5v14l11-7z" />
+    </svg>
+    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
+    </svg>
+  </button>
+
+  <div class="song-meta">
+    <div class="song-titles">
+      <h3 class="song-title">{song.title}</h3>
+      <span class="song-gloss">{song.titleGloss}</span>
+    </div>
+    <p class="song-desc">{song.description}</p>
+    <div class="chips">
+      <span class="chip genre">{song.genre}</span>
+      {song.moodTags.map((t) => <span class="chip">{t}</span>)}
+      <span class="chip data">{song.bpm} BPM</span>
+    </div>
+    <button class="link-detail js-open-modal" data-slug={song.slug} aria-haspopup="dialog">
+      Lời &amp; ý tưởng
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="song-dur">{formatDuration(song.durationSeconds)}</div>
+</article>

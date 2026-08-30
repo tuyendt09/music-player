@@ -1,0 +1,216 @@
+---
+import Base from '../layouts/Base.astro';
+import SongRow from '../components/SongRow.astro';
+import SongModal from '../components/SongModal.astro';
+import MiniPlayer from '../components/MiniPlayer.astro';
+import { songs } from '../data/songs';
+---
+
+<Base>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#top" aria-label="Castrol — Demo Âm Nhạc AI">
+        <span class="dot"></span>
+        CASTROL
+        <small>DEMO ÂM NHẠC AI</small>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="songs" id="songs">
+      <div class="container">
+        <div class="song-list">
+          {songs.map((song, i) => <SongRow song={song} index={i} />)}
+        </div>
+
+        <p class="placeholder-note">
+          Bản demo nội bộ. Các bản ghi hiện là placeholder phục vụ demo và sẽ được thay bằng bản
+          master chính thức.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  {songs.map((song, i) => <SongModal song={song} index={i} />)}
+
+  <MiniPlayer />
+</Base>
+
+<script>
+  // ── Audio + mini-player + modal wiring ────────────────────────────────
+  const audio = document.getElementById('audio') as HTMLAudioElement;
+  const player = document.getElementById('mini-player') as HTMLElement;
+  const badge = document.getElementById('mp-badge')!;
+  const titleEl = document.getElementById('mp-title')!;
+  const genreEl = document.getElementById('mp-genre')!;
+  const curTime = document.getElementById('mp-current')!;
+  const durTime = document.getElementById('mp-duration')!;
+  const range = document.getElementById('seek-range') as HTMLInputElement;
+  const playBtn = document.getElementById('mp-play')!;
+  const prevBtn = document.getElementById('mp-prev')!;
+  const nextBtn = document.getElementById('mp-next')!;
+
+  type Meta = { src: string; title: string; genre: string; index: string };
+  const meta: Record<string, Meta> = {};
+  document.querySelectorAll<HTMLButtonElement>('.js-play').forEach((b) => {
+    const s = b.dataset.slug!;
+    if (!meta[s]) {
+      meta[s] = {
+        src: b.dataset.src!,
+        title: b.dataset.title!,
+        genre: b.dataset.genre!,
+        index: b.dataset.index!,
+      };
+    }
+  });
+  // Playlist order = order of rows in the list.
+  const order = [...document.querySelectorAll<HTMLButtonElement>('.song-row .js-play')].map(
+    (b) => b.dataset.slug!
+  );
+
+  let current: string | null = null;
+  let seeking = false;
+
+  const fmt = (t: number) => {
+    if (!isFinite(t) || t < 0) return '0:00';
+    const m = Math.floor(t / 60);
+    const s = Math.floor(t % 60);
+    return `${m}:${String(s).padStart(2, '0')}`;
+  };
+
+  function reflect(slug: string | null, playing: boolean) {
+    document.querySelectorAll<HTMLElement>('.js-play').forEach((b) =>
+      b.classList.toggle('is-playing', b.dataset.slug === slug && playing)
+    );
+    document.querySelectorAll<HTMLElement>('.song-row').forEach((r) =>
+      r.classList.toggle('is-playing', r.dataset.row === slug && playing)
+    );
+    player.classList.toggle('is-playing', playing);
+  }
+
+  function load(slug: string) {
+    const m = meta[slug];
+    if (!m) return;
+    current = slug;
+    audio.src = m.src;
+    badge.textContent = m.index;
+    titleEl.textContent = m.title;
+    genreEl.textContent = m.genre;
+    durTime.textContent = '0:00';
+    curTime.textContent = '0:00';
+    range.value = '0';
+    player.style.setProperty('--played', '0%');
+    player.classList.add('is-active');
+  }
+
+  function playSlug(slug: string) {
+    if (current === slug) {
+      audio.paused ? audio.play() : audio.pause();
+      return;
+    }
+    load(slug);
+    audio.play().catch(() => {});
+  }
+
+  function step(delta: number) {
+    if (!current) return;
+    const i = order.indexOf(current);
+    const next = order[(i + delta + order.length) % order.length];
+    playSlug(next);
+  }
+
+  // triggers
+  document.querySelectorAll<HTMLButtonElement>('.js-play').forEach((b) => {
+    b.addEventListener('click', () => playSlug(b.dataset.slug!));
+  });
+  playBtn.addEventListener('click', () => {
+    if (!current && order.length) return playSlug(order[0]);
+    audio.paused ? audio.play() : audio.pause();
+  });
+  prevBtn.addEventListener('click', () => step(-1));
+  nextBtn.addEventListener('click', () => step(1));
+
+  // audio events
+  audio.addEventListener('play', () => reflect(current, true));
+  audio.addEventListener('pause', () => reflect(current, false));
+  audio.addEventListener('ended', () => step(1));
+  audio.addEventListener('loadedmetadata', () => {
+    durTime.textContent = fmt(audio.duration);
+  });
+  audio.addEventListener('timeupdate', () => {
+    const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+    player.style.setProperty('--played', `${pct}%`);
+    curTime.textContent = fmt(audio.currentTime);
+    if (!seeking) range.value = String(Math.round(pct * 10));
+  });
+
+  // seek
+  const applySeek = (commit: boolean) => {
+    const pct = Number(range.value) / 1000;
+    player.style.setProperty('--played', `${pct * 100}%`);
+    if (audio.duration) curTime.textContent = fmt(pct * audio.duration);
+    if (commit && audio.duration) audio.currentTime = pct * audio.duration;
+  };
+  range.addEventListener('input', () => {
+    seeking = true;
+    applySeek(false);
+  });
+  range.addEventListener('change', () => {
+    applySeek(true);
+    seeking = false;
+  });
+
+  // ── Modal ─────────────────────────────────────────────────────────────
+  let lastFocused: HTMLElement | null = null;
+  function openModal(slug: string) {
+    const modal = document.getElementById(`modal-${slug}`);
+    if (!modal) return;
+    lastFocused = document.activeElement as HTMLElement;
+    modal.hidden = false;
+    modal.classList.add('is-open');
+    (modal.querySelector('.modal-close') as HTMLElement)?.focus();
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(modal: Element) {
+    (modal as HTMLElement).hidden = true;
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lastFocused?.focus();
+  }
+  document.querySelectorAll<HTMLButtonElement>('.js-open-modal').forEach((b) => {
+    b.addEventListener('click', () => openModal(b.dataset.slug!));
+  });
+  document.querySelectorAll<HTMLElement>('.js-close-modal').forEach((b) => {
+    b.addEventListener('click', () => {
+      const modal = b.closest('.modal');
+      if (modal) closeModal(modal);
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const open = document.querySelector('.modal.is-open');
+      if (open) closeModal(open);
+    }
+  });
+
+  // ── Scroll reveal ─────────────────────────────────────────────────────
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach((el) => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add('is-in');
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    reveals.forEach((el) => io.observe(el));
+  }
+</script>

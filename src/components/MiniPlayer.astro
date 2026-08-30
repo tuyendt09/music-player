@@ -1,0 +1,41 @@
+---
+// Persistent bottom player. Hidden (translated down) until a track starts.
+---
+
+<div class="mini-player" id="mini-player" aria-label="Trình phát nhạc">
+  <audio id="audio" preload="metadata"></audio>
+  <div class="mp-inner">
+    <div class="mp-track">
+      <div class="mp-badge" id="mp-badge" aria-hidden="true">00</div>
+      <div class="mp-titles">
+        <div class="t" id="mp-title">—</div>
+        <div class="g" id="mp-genre"></div>
+      </div>
+    </div>
+
+    <div class="mp-seek">
+      <span class="mp-time" id="mp-current">0:00</span>
+      <div class="seek" id="seek">
+        <div class="seek-track">
+          <div class="seek-fill"></div>
+        </div>
+        <div class="seek-head"></div>
+        <input type="range" id="seek-range" min="0" max="1000" value="0" step="1" aria-label="Tua bài hát" />
+      </div>
+      <span class="mp-time" id="mp-duration">0:00</span>
+    </div>
+
+    <div class="mp-controls">
+      <button id="mp-prev" aria-label="Bài trước">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h2v12H6zM20 6v12L9 12z" /></svg>
+      </button>
+      <button class="mp-play" id="mp-play" aria-label="Phát / tạm dừng">
+        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>
+      </button>
+      <button id="mp-next" aria-label="Bài kế tiếp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 6h2v12h-2zM4 6l11 6L4 18z" /></svg>
+      </button>
+    </div>
+  </div>
+</div>
