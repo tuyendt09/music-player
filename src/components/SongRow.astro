@@ -1,6 +1,7 @@
 ---
 import type { Song } from '../data/songs';
 import { formatDuration } from '../data/songs';
+import { withBase } from '../utils/base';
 
 interface Props {
   song: Song;
@@ -8,7 +9,7 @@ interface Props {
 }
 const { song, index } = Astro.props;
 const idx = String(index + 1).padStart(2, '0');
-const src = `/audio/${song.slug}.mp3`;
+const src = withBase(`/audio/${song.slug}.mp3`);
 ---
 
 <article class="song-row reveal" data-row={song.slug}>

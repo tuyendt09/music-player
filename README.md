@@ -27,21 +27,28 @@ npm run build      # → dist/  (deployable static site)
 npm run preview    # serve the built dist/ locally
 ```
 
-## Deploy — Cloudflare Pages
+## Deploy — GitHub Pages
 
-**Option A — Git (recommended):** push this repo, then in the Cloudflare dashboard →
-*Workers & Pages → Create → Pages → Connect to Git* and use:
+Deployment is automated by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml): every
+push to `main` builds the site and publishes it.
 
-| Setting              | Value          |
-| -------------------- | -------------- |
-| Framework preset     | `Astro`        |
-| Build command        | `npm run build`|
-| Build output directory | `dist`       |
+**One-time setup:** in the GitHub repo → *Settings → Pages → Build and deployment → Source*,
+choose **GitHub Actions**. (No branch to pick — the workflow does the publishing.)
 
-**Option B — Direct upload:** run `npm run build`, then drag the `dist/` folder into
-*Workers & Pages → Create → Pages → Upload assets*.
+After that, push to `main`; the **Deploy to GitHub Pages** action runs and the site goes live at:
 
-Works the same on Vercel / Netlify / GitHub Pages — just build and serve `dist/`.
+```
+https://tuyendt09.github.io/music-player/
+```
+
+This is a **project** site, so it's served under the `/music-player/` subpath. That path is set in
+[`astro.config.mjs`](astro.config.mjs) (`site` + `base`) and applied to every asset via
+`withBase()` in [`src/utils/base.ts`](src/utils/base.ts). If you rename the repo or attach a custom
+domain, update `site`/`base` to match (a root custom domain uses `base: '/'`).
+
+> **Other hosts:** the build output is a plain static `dist/` folder, so it also works on
+> Cloudflare Pages / Netlify / Vercel (build `npm run build`, serve `dist`). Those serve from the
+> domain root — set `base: '/'` for them.
 
 ## Editing the content
 
