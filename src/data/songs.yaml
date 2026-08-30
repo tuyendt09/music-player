@@ -21,15 +21,15 @@
 # ─────────────────────────────────────────────────────────────────────────
 
 - slug: tay-dinh-dau-tim-van-vui
-  title: "Tay Định Đầu, Tim Vẫn Vui"
-  titleGloss: "Hand on the Wheel, Heart Still Beats"
-  genre: "EDM / Electro"
-  moodTags: ["Upbeat", "Energetic", "Catchy"]
-  bpm: 128
-  durationSeconds: 161
-  concept: "Bản EDM lấy tiếng nẹt pô và vòng tua máy làm nhạc cụ — drop đúng lúc động cơ gầm lên."
-  description: "Build-up căng, drop mạnh, sound design từ âm thanh động cơ thật. Sinh ra để làm nền cho reels và clip tăng tốc."
-  campaignFit: "Chuẩn “viral” cho short-video và vòng thử thách cộng đồng. Dễ cắt ghép theo nhịp, hợp trend mạng xã hội."
+  title: "Tay Dính Dầu, Tim Vẫn Vui"
+  titleGloss: "Greasy Hands, Happy Heart"
+  genre: "V-pop / Work Anthem"
+  moodTags: ["Ấm áp", "Tự hào nghề", "Bắt tai"]
+  bpm: 105
+  durationSeconds: 173
+  concept: "Bài hát tự sự một ngày trong xưởng — tay dính dầu, mồ hôi nhưng tim vẫn vui vì làm nghề bằng tâm."
+  description: "Giai điệu upbeat, lời kể chuyện thợ máy chăm từng chiếc xe và niềm vui khi khách nhận xe chạy ngon. Điệp khúc dễ nhớ, mang tinh thần “làm chưa xong — mai làm tốt hơn”."
+  campaignFit: "BLANK"
   lyrics: |
     [Intro]
 
@@ -132,13 +132,13 @@
 
 - slug: len-do
   title: "Lên Đồ"
-  titleGloss: "Get Up and Go"
-  genre: "C-pop, Modern Chinese Pop"
-  moodTags: ["Upbeat", "Energetic", "Catchy"]
+  titleGloss: "Gear Up"
+  genre: "V-rap / Hip-hop"
+  moodTags: ["Hype", "Anh em", "Độ xe"]
   bpm: 92
-  durationSeconds: 178
-  concept: "Nhịp rap kể chuyện một ngày của thợ trẻ trong xưởng — mồ hôi, cờ-lê và niềm tự hào nghề."
-  description: "Beat boom-bap hiện đại, lời rap sắc và đời. Tôn vinh thế hệ thợ trẻ coi garage là sân khấu của mình."
+  durationSeconds: 150
+  concept: "Rap kể chuyện thợ máy “lên đồ” cho xe — từ ốc vít, độ pô đến biến xe cũ thành tuyệt tác."
+  description: "Beat gầm, flow sắc, điệp khúc hô “Lên đồ!” và “Máy gầm!” — tinh thần anh em cùng chiến trong garage, biến mỗi chiếc xe qua tay thành phong cách riêng."
   campaignFit: "BLANK"
   lyrics: |
     [Intro]
@@ -173,45 +173,45 @@
     Đã mê là làm — đã làm là chất!
     cùng anh em lên đồ!
 
-- slug: nghien-do-xe
-  title: "Nghiện Độ Xe"
-  titleGloss: "Car Enthusiast"
-  genre: "Melodic Rap, Hip-hop Pop"
-  moodTags: ["Bùng nổ", "Nổi loạn", "Cao trào"]
-  bpm: 138
-  durationSeconds: 204
-  concept: "Anthem rock guitar nặng — tinh thần không khuất phục của người thợ, mỗi động cơ là một trận chiến."
-  description: "Riff guitar dày, trống dồn và điệp khúc hát theo được. Bản nhạc dựng khí thế, dành cho những khoảnh khắc cao trào."
-  campaignFit: "Nhạc nền lý tưởng cho trailer chiến dịch và cảnh “hé lộ người hùng”. Tạo cảm giác epic khi lên hình."
-  lyrics: |
-    [Intro]
-    Xe kêu “rẹt rẹt” — ông thợ nghe phát!
-    Cầm ngay cờ lê: “Để tui xử!”
+# - slug: nghien-do-xe
+#   title: "Nghiện Độ Xe"
+#   titleGloss: "Hooked on Modding"
+#   genre: "Melodic Rap / Hip-hop Pop"
+#   moodTags: ["Vui nhộn", "Đam mê", "Bắt tai"]
+#   bpm: 98
+#   durationSeconds: 79
+#   concept: "Rap dí dỏm về “nghiện” độ xe — cờ lê trên tay, bỏ nhậu để vào garage, và câu kết “chỉ là đam mê thôi”."
+#   description: "Flow nhẹ, điệp khúc “Mê xe! Mê xe!” dễ hát theo. Kể chuyện thợ máy say mê từng con ốc nhỏ, vui vẻ và gần gũi — không epic mà đúng chất anh em mê xe."
+#   campaignFit: "Tông vui, dễ viral cho meme garage và clip “vợ hỏi đi đâu — ra garage chứ gì”. Outro gắn Castrol Vietnam tự nhiên, phù hợp branded content cộng đồng thợ."
+#   lyrics: |
+#     [Intro]
+#     Xe kêu “rẹt rẹt” — ông thợ nghe phát!
+#     Cầm ngay cờ lê: “Để tui xử!”
 
-    [Verse]
-    Ốc này hơi lỏng — siết một phát căng
-    Máy này hơi yếu — làm cho nó sung
-    Độ pô một chút, độ đèn một tí
-    Vợ hỏi “Đi đâu?” — “Ra garage chứ gì!”
+#     [Verse]
+#     Ốc này hơi lỏng — siết một phát căng
+#     Máy này hơi yếu — làm cho nó sung
+#     Độ pô một chút, độ đèn một tí
+#     Vợ hỏi “Đi đâu?” — “Ra garage chứ gì!”
 
-    [Chorus]
-    Mê xe! Mê xe! — sao mà cai được!
-    Nghe máy nổ lên — tim mình lại bước!
-    Cờ lê trên tay — tóc tai dính nhớt
-    Xe chưa đẹp sao? — Độ tiếp! Độ tiếp!
+#     [Chorus]
+#     Mê xe! Mê xe! — sao mà cai được!
+#     Nghe máy nổ lên — tim mình lại bước!
+#     Cờ lê trên tay — tóc tai dính nhớt
+#     Xe chưa đẹp sao? — Độ tiếp! Độ tiếp!
 
-    [Verse]
-    Sáng loay hoay máy, tối loay hoay xe
-    Bạn bè rủ nhậu — “Khoan, đang độ nè!”
-    Một con ốc nhỏ cũng phải làm cho chuẩn
-    Xe ra khỏi garage — ai nhìn cũng muốn!
+#     [Verse]
+#     Sáng loay hoay máy, tối loay hoay xe
+#     Bạn bè rủ nhậu — “Khoan, đang độ nè!”
+#     Một con ốc nhỏ cũng phải làm cho chuẩn
+#     Xe ra khỏi garage — ai nhìn cũng muốn!
 
-    [Chorus]
-    Mê xe! Mê xe! — sao mà cai được!
-    Nghe máy nổ lên — tim mình lại bước!
-    Cờ lê trên tay — tóc tai dính nhớt
-    Xe chưa đẹp sao? — Độ tiếp! Độ tiếp!
+#     [Chorus]
+#     Mê xe! Mê xe! — sao mà cai được!
+#     Nghe máy nổ lên — tim mình lại bước!
+#     Cờ lê trên tay — tóc tai dính nhớt
+#     Xe chưa đẹp sao? — Độ tiếp! Độ tiếp!
 
-    [Outro]
-    Không phải nghiện đâu… chỉ là đam mê!
-    Castrol Vietnam — anh em mình cùng mê!
+#     [Outro]
+#     Không phải nghiện đâu… chỉ là đam mê!
+#     Castrol Vietnam — anh em mình cùng mê!
